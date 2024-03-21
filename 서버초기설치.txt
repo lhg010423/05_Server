@@ -1,0 +1,82 @@
+Apache Tomcat 설치
+https://tomcat.apache.org/
+
+화면 왼쪽 Download - Tomcat 10 - Binary Distributions - Core - zip
+
+자바EE버전이 아니면 servlet 이용이 어렵다
+
+
+자바 초기 설정----------------------------------------------------------------
+서버설정
+Windows - Preferences - Server - Runtimee Environment - add - Apache
+- Apache Tomcat v10.1 - Next - Browse - 다운받은 apache-tomcat-10.1.19 파일 선택
+- finish
+
+폰트설정
+Windows - Preferences - font 검색 - Basic - Text Font
+
+General - Show heap status 체크
+General - Workspace - Refresh using native hooks or polling 체크
+--------------------------------------------------------------------------------
+
+
+서버 연결하는 법
+화면 맨아래 Console 옆에 Servers 클릭 하면 파란 줄로 영어가 나오는데 클릭
+Apache - Tomcat v10.1 Server 클릭 - host name 은 localhost 그래도 둔다
+Server name 은 Servlet Server 로 바꾸고 finish
+이렇게 다 하면 왼쪽에 Servers 파일이 생긴다
+
+
+서버 설정
+화면 아래 Servers 에 방금만든 Servlet Server를 더블클릭하면 서버 설정이 나옴
+
+기본 포트가 8080으로 되어있는데 A이라는 프로젝트에 8080포트를 쓰고
+똑같은 서버, B라는 프로젝트에는 다시 8080을 못씀
+그러면 화면 맨아래 Servlet Server 더블클릭 - Modules - Remove를 해야한다
+
+
+Dynamic Web Project 만들기
+프로젝트 빈공간에 우클릭 - new - project - dy만 검색해도 Dynamic Web Project 가 나옴
+이름 정하고 tomcat 버전 10 이상부터는 module 버전을 6이상으로 해야한다 자동으로
+되어 있으니 그냥 next - next - Generate web.xml deployment descriptor 체크 - fihish
+
+
+Package Explorer 설정
+Window - Show View - Package Explorer 하면 나옴
+ServletServer 클릭하면 src/main/java 는 백엔드
+src - main - webapp 는 프론트엔드
+
+src - main - webapp - WEB-INF : 브라우저에서 직접적으로 접근 불가(보안)
+
+
+오류해결
+ServletServer - src - main - webapp - WEB_INF - web.xml 파일에 2번째 줄
+web-app 에 빨간줄이 생길때
+window - Preferences - XML (Wild Web Developer)
+- Download external resources like referenced DTD, XSD 체크 - 확인
+
+
+
+===비쥬얼스튜디오===
+파일 - 폴더열기 - 자바 에서 연 프로젝트로 똑같은 폴더 열기 05_Server
+- ServletProject 선택후 확인
+ServletProject - src - webapp 클릭후 파일생성 - index.html 같은 파일을 만들면
+자바(eclipce)에서도 index.html 파일이 생성된다
+
+
+실행하는 법
+그냥 ctrl + F11 하면 안됨 
+오늘 만든 ServletServer 프로젝트 우클릭 - Run as - Run on Server
+
+
+강력 새로고침(브라우저에서)
+ctrl + shift + r
+
+jsp 만들기
+ServletServer - src - main - webapp - WEB-INF - views 클릭후 ctrl + n
+jsp 검색 - JSP File 클릭 후 Next - 경로 확인후 이름 정하고 Finish
+
+
+jsp, css, html 파일 자동으로 UTF-8 로 만들기
+Window - Preferences - Web - CSS Files, HTML Files, JSP Files, XML Files 각각 들어가서
+Encoding 클릭후 맨 위에 있는 UTF-8 선택후 Apply

@@ -1,0 +1,14 @@
+브라우저(frontend)에서 백엔드로 요청을 Request
+서버(backend)에서 프론트엔드로 응답하는거를 Response 라 한다
+
+웹 서비스
+HTML, CSS, JS => 웹페이지
+
+정적 서비스 서버 -> 웹서버(아파치 서버, 엔진엑스 NGINX)
+
+동적 서비스 서버 -> WAS(Web Application Server) or 서블릿컨테이너
+
+
+WAS(아파치톰켓) : 웹서버로부터 오는 동적인 요청을 처리하는 서버
+
+사용자한테 보여지는 html을 자바로 만드는 것을 servlet으로 할수있다
