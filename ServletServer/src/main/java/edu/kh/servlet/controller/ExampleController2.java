@@ -62,7 +62,7 @@ public class ExampleController2 extends HttpServlet{
 								// webapp폴더 기준, 앞에 webapp 가 생략되어있음
 		
 		dispatcher.forward(req, resp);
-		
+		//                요청, 응답
 		
 		
 		

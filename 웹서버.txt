@@ -12,3 +12,5 @@ HTML, CSS, JS => 웹페이지
 WAS(아파치톰켓) : 웹서버로부터 오는 동적인 요청을 처리하는 서버
 
 사용자한테 보여지는 html을 자바로 만드는 것을 servlet으로 할수있다
+
+클라이언트 -> 요청 -> 서버Controller -> service -> DAO -> DB

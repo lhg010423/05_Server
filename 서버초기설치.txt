@@ -1,4 +1,4 @@
-Apache Tomcat 설치
+Apache Tomcat 설치 --------------------------------------------------------
 https://tomcat.apache.org/
 
 화면 왼쪽 Download - Tomcat 10 - Binary Distributions - Core - zip
@@ -17,6 +17,11 @@ Windows - Preferences - font 검색 - Basic - Text Font
 
 General - Show heap status 체크
 General - Workspace - Refresh using native hooks or polling 체크
+
+jsp, css, html 파일 자동으로 UTF-8 로 만들기
+Window - Preferences - Web - CSS Files, HTML Files, JSP Files, XML Files 각각 들어가서
+Encoding 클릭후 맨 위에 있는 UTF-8 선택후 Apply
+
 --------------------------------------------------------------------------------
 
 
@@ -35,11 +40,13 @@ Server name 은 Servlet Server 로 바꾸고 finish
 그러면 화면 맨아래 Servlet Server 더블클릭 - Modules - Remove를 해야한다
 
 
+
+
 Dynamic Web Project 만들기
 프로젝트 빈공간에 우클릭 - new - project - dy만 검색해도 Dynamic Web Project 가 나옴
 이름 정하고 tomcat 버전 10 이상부터는 module 버전을 6이상으로 해야한다 자동으로
 되어 있으니 그냥 next - next - Generate web.xml deployment descriptor 체크 - fihish
-
+(Web Module 단계에서 Context root 를 / 이거로 바꾸면 웹주소명이 짧아짐)
 
 Package Explorer 설정
 Window - Show View - Package Explorer 하면 나옴
@@ -77,6 +84,14 @@ ServletServer - src - main - webapp - WEB-INF - views 클릭후 ctrl + n
 jsp 검색 - JSP File 클릭 후 Next - 경로 확인후 이름 정하고 Finish
 
 
-jsp, css, html 파일 자동으로 UTF-8 로 만들기
-Window - Preferences - Web - CSS Files, HTML Files, JSP Files, XML Files 각각 들어가서
-Encoding 클릭후 맨 위에 있는 UTF-8 선택후 Apply
+
+
+
+
+이론공부
+status code(HTTP 상태코드) 외우기
+
+
+
+
+
