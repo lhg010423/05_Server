@@ -94,4 +94,13 @@ status code(HTTP 상태코드) 외우기
 
 
 
+라이브러리 vs 프레임워크
+lombok         spring
+jstl
 
+라이브러리 : 자바를 편하게 사용하기 위해 사용하는 것 꼭없어도됨 ex) 가구
+프레임워크 : 없으면 안돌아감 ex) 집
+
+라이브러리-----------------------------------------------------------------
+다운받은 jstl파일 3개를 Dynamic Web Projectd 의
+src - main - webapp - WEB-INF - lib 파일에 넣는다
