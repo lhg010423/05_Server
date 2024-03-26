@@ -1,0 +1,9 @@
+lombok.jar 파일 tools에 다운받고
+복사한뒤 자바 실행파일이 있는곳 (C:\tools\eclipse) 에 붙여넣는다
+C:\tools\eclipse 이경로에 shift + 마우스우클릭 하면
+powershell 을 클릭
+java -jar lo 까지 친뒤 tab을 누르면 자동완성됨
+java -jar .\lombok.jar
+엔터 누르면 뭐하나 뜨는데 
+Specify location 누르고
+C:\tools\eclipse 경로에 있는 eclipse exe 파일 선택후 확인 끝
