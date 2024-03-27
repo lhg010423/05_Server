@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
-import edu.kh.todoList.common.JDBCTemplate;
+import static edu.kh.todoList.common.JDBCTemplate.*;
 import edu.kh.todoList.member.model.dto.Member;
 
 public class MemberDAO {
@@ -65,11 +65,40 @@ public class MemberDAO {
 			}
 			
 		} finally {
-			JDBCTemplate.close(rs);
-			JDBCTemplate.close(pstmt);
+			close(rs);
+			close(pstmt);
 		}
 		
 		return loginMember;
+	}
+
+	/** 회원가입 SQL 수행 DAO
+	 * @param conn
+	 * @param member
+	 * @return result
+	 */
+	public int signup(Connection conn, Member member) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("signup");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getMemberId());
+			pstmt.setString(2, member.getMemberPw());
+			pstmt.setString(3, member.getMemberNickname());
+			
+			result = pstmt.executeUpdate();
+			
+			
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 	
 	

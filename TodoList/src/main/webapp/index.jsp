@@ -32,6 +32,8 @@
 					
 					<button>로그인</button>
 					
+					<a href="/signup" class="signup">회원가입</a>
+					
 				</form>
 			
 			</c:when>
@@ -56,8 +58,12 @@
 									<td>${todo.todoTitle}</td>
 									<td>${todo.todoMemo}</td>
 									<td>${todo.todoDate}</td>
-									<td><a class="update-btn">수정</a></td>
-									<td><a class="delete-btn">삭제</a></td>
+									<%-- 어떤걸 수정/삭제해야하는지 직접 정해준다 --%>
+									<td><a href="/update?todoNo=${todo.todoNo}" class="update-btn">수정</a></td>
+									<td><a href="/delete?todoNo=${todo.todoNo}"
+										onclick="return confirm('정말 삭제하시겠습니까?');"
+									 class="delete-btn">삭제</a></td>
+									 <%-- /delete?todoNo=${todo.todoNo} ?뒤는 파라미터값으로 얻어올수 있다 --%>
 								
 								</tr>
 							</c:forEach>
@@ -66,7 +72,7 @@
 				</c:choose>
 				
 				<div class="button-div">
-					<a class="insert-btn">등록하기</a>
+					<a href="/insert" class="insert-btn">등록하기</a>
 					<a href="/logout" class="logout-btn">로그아웃</a>
 				</div>
 				
