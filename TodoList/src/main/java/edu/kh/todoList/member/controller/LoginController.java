@@ -88,28 +88,12 @@ public class LoginController extends HttpServlet{
 				// http://localhost:8080/
 				
 				resp.sendRedirect(referer);
-				
-				
-				
-				
-				
 			}
-			
-			
 			
 		} catch (Exception e) {
 			System.out.println("[로그인 중 예외 발생]");
 			e.printStackTrace();
 		}
 		
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }

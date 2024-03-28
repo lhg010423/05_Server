@@ -33,9 +33,6 @@ public class TodoDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 
 	/** 로그인한 회원이 등록한 todoList 전체 조회 SQL 실행 DAO

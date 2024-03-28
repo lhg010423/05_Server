@@ -13,7 +13,12 @@ import lombok.ToString;
 @ToString
 public class Member {
 	
-	private String 
+	private int memberNo; // 회원번호
+	private String memberId; // 회원 아이디
+	private String memberPw; // 회원 비번
+	private String memberNickname; // 회원 이름
+	private String enrollDate; // 계정 생성일
+	private String memberDeleteFlag; // 탈퇴 여부
 	
 	
 }
