@@ -71,4 +71,37 @@ public class BoardDAO {
 		return boardList;
 	}
 
+
+	public List<Board> selectOne(Connection conn, String memberId) throws Exception{
+		
+		List<Board> boardList = new ArrayList<Board>();
+		
+		try {
+			String sql = prop.getProperty("selectOne");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				int boardNo = rs.getInt("BOARD_NO");
+				String boardTitle = rs.getString("BOARD_TITLE");
+				String boardContent = rs.getString("BOARD_CONTENT");
+				int boardHit = rs.getInt("BOARD_HIT");
+				String writer = rs.getString("MEMBER_ID");
+				
+				Board board = new Board(boardNo, boardTitle, boardContent, boardHit, writer);
+				boardList.add(board);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return boardList;
+	}
+
 }

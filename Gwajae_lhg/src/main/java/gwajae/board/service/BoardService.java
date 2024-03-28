@@ -26,6 +26,17 @@ public class BoardService {
 		
 		return boardList;
 	}
+
+	public List<Board> selectOne(String memberId) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<Board> boardList = dao.selectOne(conn, memberId);
+		
+		close(conn);
+		
+		return boardList;
+	}
 	
 	
 	

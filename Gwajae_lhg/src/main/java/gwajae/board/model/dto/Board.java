@@ -17,6 +17,7 @@ public class Board {
 	private String boardTitle; // 제목
 	private String boardContent; // 내용
 	private int boardHit; // 조회수
+	private String writer; // 작성자 아이디
 	
 	
 }

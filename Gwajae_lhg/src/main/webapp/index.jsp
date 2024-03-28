@@ -9,7 +9,7 @@
 	<meta charset="UTF-8">
 	<title>gwajae_login</title>
 	
-	<link rel="stylesheet" href="/resources/css/main.css">
+<%--	<link rel="stylesheet" href="/resources/css/main.css"> --%>
 </head>
 <body>
 	<main>
@@ -42,57 +42,32 @@
 			<%-- 로그인을 했다면 : 현재 로그인한 사람의 todolist 출력 --%>
 			<c:otherwise>
 				<h1>전체 게시글</h1>
+				<a href="/selectOne">내 게시글 보기</a>
+				
 				<table>
 					<tr>
 						<th>게시판번호</th>
 						<th>제목</th>
 						<th>조회수</th>
+						<th>작성자</th>
 					</tr>
-				
+					
 					<c:forEach var="bd" items="${boardList}">
 						<tr>
-							<td><a href="">${bd.boardNo}</a></td>
-							<td>${bd.boardTitle}</td>
-							<td>${bd.boardHit}</td>
-						
+							<a href="/boardView">
+								<td>${bd.boardNo}</td>
+								<td>${bd.boardTitle}</td>
+								<td>${bd.boardHit}</td>
+								<td>${bd.writer}</td>
+							</a>
 						</tr>
 					</c:forEach>
+					
 				</table>
 			</c:otherwise>
-					
-				
-				
-				
-				<%-- 
-				<c:choose>
-					
-					<c:when test="${empty boardList}">
-						
-						<h1>게시판 없음</h1>
-					
-					</c:when>
-					
-					
-					<c:otherwise>
-						<table href="/selectAll">
-							<c:forEach var="board" items="${boardList}">
-								<tr>
-									<th>게시판 번호</th>
-									<th>제목</th>
-									<th>조회수</th>
-								
-								</tr>
-							
-							</c:forEach>
-						</table>
-					</c:otherwise>
-				</c:choose>
-				--%>
-				
+			
 		</c:choose>
-	
 	</main>
-	
 	
 </body>
 </html>

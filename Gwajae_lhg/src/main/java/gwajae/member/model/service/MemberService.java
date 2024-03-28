@@ -4,6 +4,7 @@ import static gwajae.common.JDBCTemplate.close;
 import static gwajae.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
+import java.util.List;
 
 import gwajae.member.model.dao.MemberDAO;
 import gwajae.member.model.dto.Member;
@@ -27,5 +28,7 @@ public class MemberService {
 		
 		return loginMember;
 	}
+
+	
 
 }

@@ -34,7 +34,7 @@ INSERT INTO "MEMBER" VALUES
 
 
 	
-----------------------------------------------------------	
+---------  게시판  -------------------------------------------------	
 CREATE TABLE BOARD(
 	BOARD_NO NUMBER PRIMARY KEY, -- 게시글 번호
 	BOARD_TITLE VARCHAR2(50), -- 게시글 제목
@@ -55,10 +55,10 @@ COMMENT ON COLUMN BOARD.BOARD_HIT IS '게시글 조회수';
 COMMENT ON COLUMN BOARD.MEMBER_ID IS '회원 아이디';
 
 
-INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL, '게시글1', '1번 게시글 내용', 2, 'user01');
-INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL, '게시글2', '2번 게시글 내용', 1, 'user02');
+INSERT INTO BOARD VALUES(1, '게시글1', '1번 게시글 내용', 2, 'user01');
+INSERT INTO BOARD VALUES(2, '게시글2', '2번 게시글 내용', 1, 'user02');
 
-
+COMMIT;
 ----------------- 시퀀스 --------------------
 CREATE SEQUENCE BOARD_SEQ
 START WITH 1
@@ -89,8 +89,12 @@ SELECT MEMBER_ID, MEMBER_NICKNAME
 		AND MEMBER_ID = 'user01'
 		AND MEMBER_PW = 'pass01';
 
-CREATE TABLE 
+CREATE TABLE ;
 	
 	
 	
 COMMIT;
+
+SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_HIT, MEMBER_ID FROM BOARD
+		WHERE MEMBER_ID = 'user01';
+
