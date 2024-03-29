@@ -58,7 +58,7 @@ public class BoardDAO {
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
-				board.setBoardHit(rs.getInt("BOARD_HIT"));
+				board.setWriter(rs.getString("MEMBER_ID"));
 				
 				boardList.add(board);
 				
@@ -72,12 +72,76 @@ public class BoardDAO {
 	}
 
 
-	public List<Board> selectOne(Connection conn, String memberId) throws Exception{
+	public Board selectOne(Connection conn, String boardNo, String memberId) throws Exception{
+		
+		Board board = null;
+		
+		try {
+			String sql = prop.getProperty("selectOne");
+			 
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				board = new Board();
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setWriter(rs.getString("MEMBER_ID"));
+				
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return board;
+	}
+
+
+	public int update(Connection conn, String title, String content, String memberId, String number) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("update");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setString(3, number);
+			pstmt.setString(4, memberId);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	/** 내 게시글 조회
+	 * @param conn
+	 * @param memberId
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Board> selectMine(Connection conn, String memberId) throws Exception{
 		
 		List<Board> boardList = new ArrayList<Board>();
 		
 		try {
-			String sql = prop.getProperty("selectOne");
+			
+			String sql = prop.getProperty("selectMine");
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -86,14 +150,49 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				Board board = new Board();
 				
-				int boardNo = rs.getInt("BOARD_NO");
-				String boardTitle = rs.getString("BOARD_TITLE");
-				String boardContent = rs.getString("BOARD_CONTENT");
-				int boardHit = rs.getInt("BOARD_HIT");
-				String writer = rs.getString("MEMBER_ID");
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setWriter(rs.getString("MEMBER_ID"));
 				
-				Board board = new Board(boardNo, boardTitle, boardContent, boardHit, writer);
+				boardList.add(board);
+			}
+			
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		
+		return boardList;
+	}
+
+
+	public List<Board> selectOne(Connection conn, String memberId) throws Exception{
+		
+		List<Board> boardList = new ArrayList<Board>();
+		
+		try {
+			String sql = prop.getProperty("selectMine");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Board board = new Board();
+				
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setWriter(rs.getString("MEMBER_ID"));
+				
 				boardList.add(board);
 			}
 			
@@ -101,7 +200,78 @@ public class BoardDAO {
 			close(rs);
 			close(pstmt);
 		}
+		
 		return boardList;
 	}
 
+
+	public int delete(Connection conn, String boardNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("delete");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, boardNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public List<Board> selectAll(Connection conn, String memberId) throws Exception{
+		
+		List<Board> boardList = new ArrayList<Board>();
+		
+		try {
+			String sql = prop.getProperty("selectMine");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Board board = new Board();
+				
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setWriter(rs.getString("MEMBER_ID"));
+				
+				boardList.add(board);
+			}
+			
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return boardList;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
