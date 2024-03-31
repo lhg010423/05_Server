@@ -14,7 +14,7 @@
 	
 	<h3>총 가격 : <%= request.getAttribute("price") %></h3>
 	
-	<%-- 클라이언트에 있는 값들은 PARAMETER 에 저장
+	<%-- 클라이언트에 있는 값들은 Key : Value 형태로 PARAMETER 라는 공간에 저장
 		       스코프            값들은 attribute에 저장
 		                   둘다 req에 속해있다--%>
 	
