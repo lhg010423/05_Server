@@ -28,7 +28,7 @@ Encoding 클릭후 맨 위에 있는 UTF-8 선택후 Apply
 서버 연결하는 법
 화면 맨아래 Console 옆에 Servers 클릭 하면 파란 줄로 영어가 나오는데 클릭
 Apache - Tomcat v10.1 Server 클릭 - host name 은 localhost 그래도 둔다
-Server name 은 Servlet Server 로 바꾸고 finish
+Server name 은 Servlet Server(그냥 본인이 원하는 거)로 바꾸고 finish
 이렇게 다 하면 왼쪽에 Servers 파일이 생긴다
 
 
