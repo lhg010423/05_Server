@@ -38,8 +38,10 @@
 	<h3>EL의 특징 2번 : null, NullPointerException을 빈칸으로 처리</h3>
 	
 	테스트 1 (JSP 표현식) : <%= request.getParameter("num") %>
+	<%-- 결과 : null --%>
 	<br>
 	테스트 2 (EL) : ${param.num}
+	<%-- 결과 :  --%>
 	
 	
 	<hr>
@@ -56,29 +58,6 @@
 		
 		<button>제출</button>
 	</form>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 </body>

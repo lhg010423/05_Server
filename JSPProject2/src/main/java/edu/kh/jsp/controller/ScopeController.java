@@ -65,16 +65,6 @@ public class ScopeController extends HttpServlet{
 		dis.forward(req, resp);		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	

@@ -70,12 +70,5 @@
 	${empty list1} / ${empty list2}
 	<%-- true      /    true --%>
 	
-	
-	
-	
-	
-	
-	
-	
 </body>
 </html>

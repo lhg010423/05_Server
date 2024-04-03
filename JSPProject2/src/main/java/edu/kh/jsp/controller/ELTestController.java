@@ -47,7 +47,6 @@ public class ELTestController extends HttpServlet{
 		req.setAttribute("book", book);
 		
 		
-		
 		// null과 비어있다
 		List<String> list1 = null; // null
 		List<String> list2 = new ArrayList<String>(); // 비어있음
@@ -55,9 +54,6 @@ public class ELTestController extends HttpServlet{
 		
 		req.setAttribute("list1", list1);
 		req.setAttribute("list2", list2);
-		
-		
-		
 		
 		
 		
@@ -70,33 +66,7 @@ public class ELTestController extends HttpServlet{
 		// 파라미터, 어트리뷰트(속성) 가 req 안에 실려있음
 		
 		
-		
-		
-		
-		
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
